@@ -11,3 +11,25 @@
  *= require_self
  *= require_tree .
  */
+
+$font-family: 'Georgia';
+$font-size: 24px;
+
+body {
+  font-family: $font-family;
+  font-size: $font-size;
+  line-height: 130%;
+}
+#wrapper {
+  width: 400px;
+  margin: 200px auto;
+}
+input {
+  font-family: $font-family;
+  font-size: $font-size;
+  padding: 5px;
+}
+.log-out {
+  color: blue;
+  font-size: 16px;
+}

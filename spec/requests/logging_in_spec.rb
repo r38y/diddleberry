@@ -29,4 +29,20 @@ describe "Logging in" do
     page.should have_content(user.name)
     page.should have_content(existing_email.address)
   end
+
+  it "allows the user to log out" do
+    existing_email = create(:email, :confirmed)
+    user = existing_email.user
+    user.name = "Bobby"
+    user.save
+    visit root_url
+
+    fill_in 'email', with: existing_email.address
+    click_on 'Submit'
+    visit user_sessions_url(existing_email.confirmation_token)
+
+    page.should have_content(user.name)
+    click_link "Log out"
+    page.should have_content('Log in with your email address:')
+  end
 end

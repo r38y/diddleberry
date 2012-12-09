@@ -4,6 +4,7 @@ Diddleberry::Application.routes.draw do
   resources :confirmations, only: [:new, :create]
   get "/s/:confirmation_token" => 'UserSessions#create', as: :user_sessions
   get '/check_email' => 'Pages#check_email'
+  get '/log_out' => 'UserSessions#destroy'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
