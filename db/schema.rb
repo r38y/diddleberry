@@ -11,7 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121209184513) do
+ActiveRecord::Schema.define(:version => 20121209185237) do
+
+  create_table "emails", :force => true do |t|
+    t.string   "address",      :null => false
+    t.datetime "confirmed_at"
+    t.integer  "user_id",      :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "emails", ["address"], :name => "index_emails_on_address", :unique => true
+  add_index "emails", ["user_id"], :name => "index_emails_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "name"
