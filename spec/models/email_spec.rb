@@ -19,6 +19,14 @@ describe Email do
     }
   end
 
+  context "on create" do
+    it "should create a confirmation_token" do
+      email = create(:email)
+
+      email.confirmation_token.should_not be_blank
+    end
+  end
+
   describe "#confirmed?" do
     it "should be false by default" do
       email = create(:email)
@@ -48,6 +56,14 @@ describe Email do
       expect {
         email.confirm!
       }.to_not change(email, :confirmed_at)
+    end
+
+    it "should reset the confirmation_token" do
+      email = create(:email, :confirmed)
+
+      expect {
+        email.confirm!
+      }.to change(email, :confirmation_token)
     end
   end
 end
