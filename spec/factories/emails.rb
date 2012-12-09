@@ -3,7 +3,7 @@ FactoryGirl.define do
     sequence(:address) {|n| "user#{n}@test.com" }
     association :user
     trait :confirmed do
-      confirmed_at Time.now
+      confirmed_at 2.days.ago
     end
   end
 end
