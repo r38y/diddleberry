@@ -7,11 +7,16 @@ gem 'pg'
 gem 'haml-rails'
 gem 'strong_parameters'
 
+group :development do
+  gem 'quiet_assets'
+end
+
 group :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'shoulda-matchers'
   gem 'capybara'
+  gem 'capybara-email'
 end
 
 group :assets do

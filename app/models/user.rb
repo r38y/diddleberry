@@ -3,11 +3,11 @@ class User < ActiveRecord::Base
 
   def self.from_email(address)
     if email = Email.find_by_address(address)
-      email.user
+      [ email.user, email ]
     else
       user = create
-      user.emails.create(address: address)
-      user
+      email = user.emails.create(address: address)
+      [ user, email ]
     end
   end
 end

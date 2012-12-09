@@ -21,12 +21,11 @@ describe User do
 
       it "should create a new email" do
         expect {
-          @user = User.from_email('bob@bob.com')
-          email = @user.emails.first
+          @user, @email = User.from_email('bob@bob.com')
         }.to change(Email, :count).by(1)
 
-        email = Email.find_by_address('bob@bob.com')
-        email.user.should eql(@user)
+        found_user = Email.find_by_address('bob@bob.com').user
+        found_user.should eql(@user)
       end
     end
 
@@ -48,7 +47,7 @@ describe User do
       end
 
       it "should return the existing user" do
-        found_user = User.from_email('bob@bob.com')
+        found_user, email = User.from_email('bob@bob.com')
 
         found_user.should eql(@email.user)
       end
