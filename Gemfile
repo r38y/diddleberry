@@ -5,6 +5,7 @@ ruby '1.9.3'
 gem 'rails', '3.2.9'
 gem 'pg'
 gem 'haml-rails'
+gem 'strong_parameters'
 
 group :test do
   gem 'rspec-rails'
