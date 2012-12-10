@@ -7,6 +7,10 @@ gem 'pg'
 gem 'haml-rails'
 gem 'strong_parameters'
 
+group :production do
+  gem 'lograge'
+end
+
 group :development do
   gem 'quiet_assets'
 end
