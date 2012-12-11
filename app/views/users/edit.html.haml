@@ -1,5 +1,5 @@
-%h1 We just need one more thing, your name!
+%p What should we call you?
 
 = form_for current_user do |f|
-  %p= f.text_field :name
+  %p= f.text_field :name, autofocus: true, placeholder: 'Your name'
   %p= f.submit "Submit"

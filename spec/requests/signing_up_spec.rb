@@ -14,8 +14,4 @@ describe "Signing up" do
     page.should have_content('Bob Johnson')
     page.should have_content('bob@bob.com')
   end
-
-  # it "lets them merge a new email with an existing account" do
-
-  # end
 end
