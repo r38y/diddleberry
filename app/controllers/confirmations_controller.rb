@@ -4,8 +4,12 @@ class ConfirmationsController < ApplicationController
 
   def create
     @user, @email = *User.from_email(params[:email])
-    Notifier.confirm_email(@email).deliver
-    session[:email] = @email.address
-    redirect_to check_email_url
+    if @user.valid?
+      Notifier.confirm_email(@email).deliver
+      session[:email] = @email.address
+      redirect_to check_email_url
+    else
+      render :new
+    end
   end
 end

@@ -8,8 +8,11 @@ class UsersController < ApplicationController
   end
 
   def update
-    current_user.update_attributes(user_params)
-    redirect_to root_url
+    if current_user.update_attributes(user_params)
+      redirect_to root_url
+    else
+      render :edit
+    end
   end
 
   def user_params
