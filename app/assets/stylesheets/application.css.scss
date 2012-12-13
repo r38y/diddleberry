@@ -18,10 +18,10 @@ $font-size: 24px;
 body {
   font-family: $font-family;
   font-size: $font-size;
-  line-height: 130%;
+  line-height: 150%;
 }
 #wrapper {
-  width: 400px;
+  width: 350px;
   margin: 200px auto;
 }
 input {
@@ -29,7 +29,22 @@ input {
   font-size: $font-size;
   padding: 5px;
 }
+input[type=text] {
+  padding-left: 0;
+  padding-right: 0;
+  border: 0;
+  border-bottom: 1px dashed #999;
+  outline: none;
+  width: 100%;
+}
+input[type=submit] {
+  display: none;
+}
 .log-out {
   color: blue;
   font-size: 16px;
+}
+.notice {
+  background: #DFF0D8;
+  padding: 10px;
 }

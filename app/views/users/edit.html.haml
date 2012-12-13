@@ -1,5 +1,3 @@
-%p What should we call you?
-
 = form_for current_user do |f|
-  %p= f.text_field :name, autofocus: true, placeholder: 'Your name'
+  %p= f.text_field :name, autofocus: true, placeholder: 'What should we call you?'
   %p= f.submit "Submit"
