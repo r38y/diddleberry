@@ -16,6 +16,6 @@ class Email < ActiveRecord::Base
   private
 
   def set_confirmation_token
-    self.confirmation_token = SecureRandom.hex[0, 20]
+    self.confirmation_token = SecureRandom.hex[0, 10]
   end
 end

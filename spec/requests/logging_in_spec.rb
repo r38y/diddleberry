@@ -43,6 +43,6 @@ describe "Logging in" do
 
     page.should have_content(user.name)
     click_link "Log out"
-    page.should have_content('Log in with your email address:')
+    page.should have_content('Log in')
   end
 end
