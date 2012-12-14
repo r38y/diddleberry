@@ -10,6 +10,7 @@ gem 'strong_parameters'
 group :production do
   gem 'lograge'
   gem 'postmark-rails'
+  gem 'unicorn'
 end
 
 group :development do
