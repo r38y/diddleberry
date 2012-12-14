@@ -1,5 +1,5 @@
 class Notifier < ActionMailer::Base
-  default from: "from@example.com"
+  default from: "Disko <hi@disko.me>"
 
   def confirm_email(email)
     @email = email

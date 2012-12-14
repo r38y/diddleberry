@@ -1,6 +1,9 @@
 Diddleberry::Application.configure do
   config.lograge.enabled = true
 
+  config.action_mailer.delivery_method   = :postmark
+  config.action_mailer.postmark_settings = { api_key: ENV['POSTMARK_API_KEY'] }
+
   # Settings specified here will take precedence over those in config/application.rb
 
   # Code is not reloaded between requests

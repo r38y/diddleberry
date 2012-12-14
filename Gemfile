@@ -9,6 +9,7 @@ gem 'strong_parameters'
 
 group :production do
   gem 'lograge'
+  gem 'postmark-rails'
 end
 
 group :development do
