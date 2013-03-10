@@ -5,7 +5,7 @@ class ConfirmationsController < ApplicationController
   def create
     @user, @email = *User.from_email(params[:email])
     if @user.valid?
-      Notifier.confirm_email(@email).deliver
+      SuckerPunch::Queue[:emails].async.perform(@email)
       session[:email] = @email.address
       redirect_to check_email_url
     else

@@ -6,6 +6,7 @@ gem 'rails', '3.2.9'
 gem 'pg'
 gem 'haml-rails'
 gem 'strong_parameters'
+gem 'sucker_punch'
 
 group :production do
   gem 'lograge'
