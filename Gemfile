@@ -2,7 +2,7 @@ source 'http://rubygems.org'
 
 ruby '2.0.0'
 
-gem 'rails', '3.2.9'
+gem 'rails', '=3.2.12'
 gem 'pg'
 gem 'haml-rails'
 gem 'strong_parameters'
