@@ -1,4 +1,5 @@
 require 'capybara/email/rspec'
+require 'sucker_punch/testing/inline'
 
 RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods

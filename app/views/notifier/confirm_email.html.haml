@@ -2,6 +2,6 @@
 
 %p Please click on the URL below to finish logging into Diddleberry:
 
-%p= user_sessions_url(@email.confirmation_token)
+%p=link_to user_sessions_url(@email.confirmation_token), user_sessions_url(@email.confirmation_token)
 
 %p Thank you!
