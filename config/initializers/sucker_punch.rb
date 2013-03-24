@@ -1,3 +1,1 @@
-SuckerPunch.config do
-  queue name: :emails, worker: EmailWorker, size: 2
-end
+Diddleberry.setup_sucker_punch

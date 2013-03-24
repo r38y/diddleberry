@@ -15,13 +15,21 @@ if defined?(Bundler)
   # Bundler.require(:default, :assets, Rails.env)
 end
 
+
 module Diddleberry
   class Application < Rails::Application
+    # Load heroku vars from local file
+    heroku_env = File.join(Rails.root, 'config', 'heroku_env.rb')
+    load(heroku_env) if File.exists?(heroku_env)
+
     config.generators do |g|
       g.template_engine     :haml
       g.test_framework      :rspec, fixture: false
       g.fixture_replacement :factory_girl, dir: 'spec/factories'
     end
+
+    config.action_mailer.delivery_method   = :postmark
+    config.action_mailer.postmark_settings = { api_key: ENV['POSTMARK_API_KEY'] }
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
@@ -29,6 +37,9 @@ module Diddleberry
 
     # Custom directories with classes and modules you want to be autoloadable.
     # config.autoload_paths += %W(#{config.root}/extras)
+    #
+    config.autoload_paths << "#{config.root}/lib"
+    require 'diddleberry'
 
     # Only load the plugins named here, in the order given (default is alphabetical).
     # :all can be used as a placeholder for all plugins not explicitly named.

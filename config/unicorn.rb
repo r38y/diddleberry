@@ -16,4 +16,8 @@ after_fork do |server, worker|
     ActiveRecord::Base.establish_connection
     Rails.logger.info('Connected to ActiveRecord')
   end
+
+  if defined?(SuckerPunch)
+    Diddleberry.setup_sucker_punch
+  end
 end

@@ -1,22 +1,22 @@
 source 'http://rubygems.org'
 
-ruby '2.0.0'
+ruby '1.9.3'
 
 gem 'rails', '3.2.9'
 gem 'pg'
 gem 'haml-rails'
 gem 'strong_parameters'
 gem 'sucker_punch'
+gem 'postmark-rails'
 
 group :production do
   gem 'lograge'
-  gem 'postmark-rails'
   gem 'unicorn'
 end
 
 group :development do
   gem 'quiet_assets'
-  gem 'thin'
+  gem 'foreman'
 end
 
 group :test do
