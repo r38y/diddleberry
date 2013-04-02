@@ -1,4 +1,4 @@
-class ConfirmationsController < ApplicationController
+class LoginRequestsController < ApplicationController
   def new
   end
 

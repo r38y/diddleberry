@@ -1,8 +1,8 @@
 Diddleberry::Application.routes.draw do
   root to: 'Users#show'
   resources :users, only: [:edit, :update]
-  resources :confirmations, only: [:new, :create]
-  get "/s/:confirmation_token" => 'UserSessions#create', as: :user_sessions
+  resources :login_requests, only: [:new, :create]
+  get "/e/:token" => 'UserSessions#create', as: :user_sessions
   get '/check_email' => 'Pages#check_email'
   get '/log_out' => 'UserSessions#destroy'
   # The priority is based upon order of creation:

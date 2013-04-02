@@ -11,7 +11,7 @@ describe "Signing up" do
 
     open_email('bob@bob.com')
     confirmable_email = Email.find_by_address('bob@bob.com')
-    current_email.click_link user_sessions_url(confirmable_email.confirmation_token)
+    current_email.click_link user_sessions_url(confirmable_email.token)
 
     fill_in 'user[name]', with: 'Bob Johnson'
     click_on 'Submit'

@@ -1,6 +1,6 @@
 class UserSessionsController < ApplicationController
   def create
-    @email = Email.find_by_confirmation_token!(params[:confirmation_token])
+    @email = Email.find_by_token!(params[:token])
     @email.confirm!
     session[:user_id] = @email.user.id
     if current_user.name?

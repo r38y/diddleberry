@@ -13,6 +13,6 @@ class ApplicationController < ActionController::Base
   helper_method :logged_in?
 
   def authorize
-    redirect_to new_confirmation_path unless logged_in?
+    redirect_to new_login_request_path unless logged_in?
   end
 end

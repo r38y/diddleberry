@@ -7,7 +7,7 @@ describe "Logging in" do
     fill_in 'email', with: existing_email.address
     click_on 'Submit'
     open_email(existing_email.address)
-    current_email.click_link user_sessions_url(existing_email.confirmation_token)
+    current_email.click_link user_sessions_url(existing_email.token)
     fill_in 'user[name]', with: 'Bob Johnson'
     click_on 'Submit'
     page.should have_content('Bob Johnson')
@@ -24,7 +24,7 @@ describe "Logging in" do
     fill_in 'email', with: existing_email.address
     click_on 'Submit'
     open_email(existing_email.address)
-    current_email.click_link user_sessions_url(existing_email.confirmation_token)
+    current_email.click_link user_sessions_url(existing_email.token)
 
     page.should have_content(user.name)
     page.should have_content(existing_email.address)
@@ -39,7 +39,7 @@ describe "Logging in" do
 
     fill_in 'email', with: existing_email.address
     click_on 'Submit'
-    visit user_sessions_url(existing_email.confirmation_token)
+    visit user_sessions_url(existing_email.token)
 
     page.should have_content(user.name)
     click_link "Log out"
