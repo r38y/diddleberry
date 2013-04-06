@@ -1,4 +1,4 @@
 = form_tag login_requests_path, class: 'form-inline' do
-  %p
+  %div.input-append
     = text_field_tag :email, '', autofocus: true, placeholder: 'Your email address'
     = button_tag "Submit", type: 'submit', class: 'btn btn-primary'
