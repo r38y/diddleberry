@@ -5,6 +5,7 @@ Diddleberry::Application.routes.draw do
   get "/e/:token" => 'UserSessions#create', as: :user_sessions
   get '/check_email' => 'Pages#check_email'
   get '/log_out' => 'UserSessions#destroy'
+  get '/me/edit' => 'Users#edit', as: :edit_me
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

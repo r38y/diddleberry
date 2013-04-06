@@ -1,1 +1,4 @@
-%p.notice{style: 'text-align: center;'} Please check<br/> <strong>#{session[:email]}</strong><br/> for a link to log in.
+%div.alert.alert-success.alert-block
+  %h4 Check your email!
+  %p Please check <strong>#{session[:email]}</strong> for a link to log in.
+  %p Didn't get an email? #{link_to "Try again", new_login_request_path}.

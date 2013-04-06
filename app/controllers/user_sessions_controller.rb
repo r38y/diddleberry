@@ -6,7 +6,7 @@ class UserSessionsController < ApplicationController
     if current_user.name?
       redirect_to root_url
     else
-      redirect_to edit_user_path(current_user)
+      redirect_to edit_me_path
     end
   end
 

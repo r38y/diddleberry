@@ -1,3 +1,4 @@
-= form_for current_user do |f|
-  %p= f.text_field :name, autofocus: true, placeholder: 'What should we call you?'
-  %p= f.submit "Submit"
+= form_for current_user, html: { class: 'form-inline' } do |f|
+  %p
+    = f.text_field :name, autofocus: true, placeholder: 'What should we call you?'
+    = f.button "Submit", class: 'btn btn-primary'

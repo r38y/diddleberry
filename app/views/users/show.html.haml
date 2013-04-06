@@ -1,7 +1,10 @@
-%p= current_user.name
+%h4
+  = current_user.name
 
 %ul
   - current_user.emails.each do |email|
     %li= email.address
 
-%p= link_to 'Log out', log_out_path, class: 'log-out'
+%p
+  = link_to "Edit", edit_me_path
+  = link_to 'Log out', log_out_path, class: 'log-out'
