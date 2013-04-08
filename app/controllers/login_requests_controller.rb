@@ -5,7 +5,7 @@ class LoginRequestsController < ApplicationController
   def create
     @user, @email = *User.from_email(params[:email])
     if @user.valid?
-      SuckerPunch::Queue[:emails].async.perform(:confirm_email, @email)
+      SuckerPunch::Queue[:emails].async.perform(:log_in_request, @email)
       session[:email] = @email.address
       redirect_to check_email_url
     else
