@@ -1,4 +1,4 @@
-class LoginRequestsController < ApplicationController
+class LogInRequestsController < ApplicationController
   def new
   end
 
