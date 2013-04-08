@@ -1,7 +1,7 @@
 class EmailWorker
   include SuckerPunch::Worker
 
-  def perform(email)
-    Notifier.confirm_email(email).deliver
+  def perform(method, *args)
+    Notifier.send(method, *args).deliver
   end
 end

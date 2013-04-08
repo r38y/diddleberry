@@ -1,0 +1,8 @@
+<% [:notice, :error, :alert].each do |level| %>
+  <% if flash[level].present?%>
+    <div class="alert alert-<%= flash_class(level) %>">
+      <a class="close" data-dismiss="alert" href="#">&times;</a>
+      <%= flash[level]%>
+    </div>
+  <% end%>
+<% end %>

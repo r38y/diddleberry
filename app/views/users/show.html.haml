@@ -3,8 +3,15 @@
 
 %ul
   - current_user.emails.each do |email|
-    %li= email.address
+    %li
+      = email.address
+      - unless email.confirmed?
+        %span.muted (unconfirmed)
 
+= form_for current_user.emails.new do |form|
+  %div.input-append
+    = form.text_field :address, placeholder: 'Add another email'
+    = form.button "Add", class: 'btn btn-primary'
 %p
   = link_to "Edit", edit_me_path
   = link_to 'Log out', log_out_path, class: 'log-out'
