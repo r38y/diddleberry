@@ -1,4 +1,7 @@
 Diddleberry::Application.configure do
+  config.action_mailer.delivery_method   = :postmark
+  config.action_mailer.postmark_settings = { api_key: ENV['POSTMARK_API_KEY'] }
+
   config.lograge.enabled = true
 
   Rails.application.default_url_options  = { host: 'diddleberry.herokuapp.com' }
