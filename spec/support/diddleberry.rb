@@ -6,4 +6,7 @@ RSpec.configure do |config|
   config.include Shoulda::Matchers::ActionController
   config.include Shoulda::Matchers::ActionMailer
   config.include Capybara::DSL, type: :request
+
+  config.before(:all) { DeferredGarbageCollection.start }
+  config.after(:all) { DeferredGarbageCollection.reconsider }
 end
