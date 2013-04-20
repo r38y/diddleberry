@@ -11,6 +11,16 @@ describe User do
     it { should have_many(:emails).dependent(:destroy) }
   end
 
+  describe "on destroy" do
+    it "should work" do
+      user = create(:user)
+
+      expect {
+        user.destroy
+      }.to change(User, :count).by(-1)
+    end
+  end
+
   describe ".from_email(email)" do
     context "when the email doesn't exist" do
       it "should create a new user" do
