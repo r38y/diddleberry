@@ -11,7 +11,7 @@ describe User do
     it { should have_many(:emails).dependent(:destroy) }
   end
 
-  describe "on destroy" do
+  context "on destroy" do
     it "should work" do
       user = create(:user)
 

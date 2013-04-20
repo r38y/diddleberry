@@ -4,7 +4,7 @@ describe Email do
   it "should create a valid record" do
     expect {
       create(:email)
-    }.to change(Email, :count).by(2)
+    }.to change(Email, :count).by(1)
   end
 
   context "associations" do
@@ -30,18 +30,18 @@ describe Email do
   context "on destroy" do
     it "should work" do
       user = create(:user)
-      second_email = create(:email, user: user)
+      email_one = create(:email, user: user)
+      email_two = create(:email, user: user)
 
       user.emails.count.should eq(2)
       expect {
-        second_email.destroy
+        email_one.destroy
       }.to change(user.emails, :count).by(-1)
-
     end
 
     it "should fail if not deleteable" do
       user = create(:user)
-      email = user.emails.first
+      email = create(:email, user: user)
 
       expect {
         email.destroy

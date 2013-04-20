@@ -1,12 +1,14 @@
 %h4
   = current_user.name
 
-%ul
+%ul{class: 'user-emails'}
   - current_user.emails.each do |email|
-    %li
+    %li{id: dom_id(email)}
       = email.address
       - unless email.confirmed?
         %span.muted (unconfirmed)
+      - if email.deleteable?
+        = link_to "&times;".html_safe, remove_email_path(email.token), class: 'close email-remove', data: { behavior: 'confirm', confirm: "Are you sure you want to remove #{email.address} from your account?"}
 
 = form_for current_user.emails.new do |form|
   %div.input-append

@@ -12,6 +12,12 @@ class EmailsController < ApplicationController
     end
   end
 
+  def destroy
+    email = current_user.emails.find_by_token(params[:token])
+    email.destroy
+    redirect_to root_url, notice: "#{email.address} has been removed from your account."
+  end
+
   private
   def email_params
     params.require(:email).permit(:address)
