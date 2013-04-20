@@ -6,4 +6,10 @@ class Notifier < ActionMailer::Base
     mail to: email.address,
       subject: "Log in to Diddleberry"
   end
+
+  def confirm_email(email)
+    @email = email
+    mail to: email.address,
+      subject: "Confirm your email"
+  end
 end

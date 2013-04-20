@@ -1,0 +1,7 @@
+%p Hi there,
+
+%p Please click the following link to confirm adding #{@email.address} to your account:
+
+%p=link_to user_sessions_url(@email.token), user_sessions_url(@email.token)
+
+%p Thank you!
