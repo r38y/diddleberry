@@ -1,4 +1,6 @@
 class Email < ActiveRecord::Base
+  include DeleteProtection
+
   belongs_to :user
   validates :address, presence: true, uniqueness: true
   before_validation :set_token, on: :create
@@ -9,6 +11,10 @@ class Email < ActiveRecord::Base
 
   def confirm!
     touch(:confirmed_at) unless confirmed?
+  end
+
+  def deleteable?
+    user.emails.count > 1
   end
 
   private

@@ -4,7 +4,7 @@ describe Email do
   it "should create a valid record" do
     expect {
       create(:email)
-    }.to change(Email, :count).by(1)
+    }.to change(Email, :count).by(2)
   end
 
   context "associations" do
@@ -24,6 +24,28 @@ describe Email do
       email = create(:email)
 
       email.token.should_not be_blank
+    end
+  end
+
+  context "on destroy" do
+    it "should work" do
+      user = create(:user)
+      second_email = create(:email, user: user)
+
+      user.emails.count.should eq(2)
+      expect {
+        second_email.destroy
+      }.to change(user.emails, :count).by(-1)
+
+    end
+
+    it "should fail if not deleteable" do
+      user = create(:user)
+      email = user.emails.first
+
+      expect {
+        email.destroy
+      }.to_not change(user.emails, :count)
     end
   end
 
