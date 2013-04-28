@@ -64,6 +64,8 @@ GEM
       factory_girl (~> 4.1.0)
       railties (>= 3.0.0)
     ffi (1.2.0)
+    flatstrap-rails (0.3.0.1)
+      twitter-bootstrap-rails (~> 2.2.6)
     foreman (0.51.0)
       thor (>= 0.13.6)
     haml (3.1.7)
@@ -178,6 +180,10 @@ GEM
     treetop (1.4.12)
       polyglot
       polyglot (>= 0.3.1)
+    twitter-bootstrap-rails (2.2.6)
+      actionpack (>= 3.1)
+      execjs
+      railties (>= 3.1)
     tzinfo (0.3.37)
     uglifier (1.3.0)
       execjs (>= 0.3.0)
@@ -198,6 +204,7 @@ DEPENDENCIES
   capybara-email
   coffee-rails (~> 3.2.1)
   factory_girl_rails
+  flatstrap-rails
   foreman
   haml-rails
   jquery-rails
